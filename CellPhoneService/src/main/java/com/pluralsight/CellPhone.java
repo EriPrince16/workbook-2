@@ -2,12 +2,14 @@ package com.pluralsight;
 
 public class CellPhone {
 
-    long serialNumber;
-    String phoneModel;
-    String phoneCarrier;
-    String phoneNumber;
-    String phoneOwner;
+    // Fields should be private for proper encapsulation
+    private long serialNumber;
+    private String phoneModel;
+    private String phoneCarrier;
+    private String phoneNumber;
+    private String phoneOwner;
 
+    // Default constructor
     public CellPhone() {
         serialNumber = 0;
         phoneModel = "";
@@ -16,6 +18,17 @@ public class CellPhone {
         phoneOwner = "";
     }
 
+    // Overloaded constructor
+    public CellPhone(long serialNumber, String phoneModel, String phoneCarrier,
+                     String phoneNumber, String phoneOwner) {
+        this.serialNumber = serialNumber;
+        this.phoneModel = phoneModel;
+        this.phoneCarrier = phoneCarrier;
+        this.phoneNumber = phoneNumber;
+        this.phoneOwner = phoneOwner;
+    }
+
+    // Setters
     public void setSerialNumber(long serialNumber) {
         this.serialNumber = serialNumber;
     }
@@ -36,6 +49,7 @@ public class CellPhone {
         this.phoneOwner = phoneOwner;
     }
 
+    // Getters
     public long getSerialNumber() {
         return serialNumber;
     }
@@ -56,7 +70,7 @@ public class CellPhone {
         return phoneOwner;
     }
 
-    // Dial method to simulate calling a phone number
+    // Method to simulate dialing a number
     public void dial(String phoneNumber) {
         System.out.println(phoneOwner + "'s phone is calling " + phoneNumber);
     }

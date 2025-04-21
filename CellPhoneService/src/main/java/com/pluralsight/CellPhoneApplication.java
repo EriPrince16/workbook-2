@@ -10,7 +10,7 @@ public class CellPhoneApplication {
 
         System.out.print("Enter your serial number: ");
         long userSerialNumber = scanner.nextLong();
-        scanner.nextLine();  // Consume the newline left by nextLong()
+        scanner.nextLine(); // Consume newline
 
         System.out.print("Enter your phone model: ");
         String userPhoneModel = scanner.nextLine();
@@ -37,22 +37,30 @@ public class CellPhoneApplication {
         phone2.setPhoneOwner("Bob");
         phone2.setPhoneNumber("987-654-3210");
 
-        // Display phone info
+        // Create a third phone using the overloaded constructor
+        CellPhone phone3 = new CellPhone(
+                1122334455L,
+                "Pixel 7 Pro",
+                "T-Mobile",
+                "555-123-4567",
+                "Alice"
+        );
+
+        // Display info for all phones
         display(myCellPhone);
         display(phone2);
+        display(phone3);
 
         // Calling dial method
         System.out.print("\nEnter the phone number to dial: ");
         String numberToDial = scanner.nextLine();
         myCellPhone.dial(numberToDial);
 
-        // Displaying cell phone details for myCellPhone
-        System.out.println("\n--- Cell Phone Info ---");
-        System.out.println("Your cell phone serial number is: " + myCellPhone.getSerialNumber());
-        System.out.println("Your cell phone model is: " + myCellPhone.getPhoneModel());
-        System.out.println("Your cell phone carrier is: " + myCellPhone.getPhoneCarrier());
-        System.out.println("Your cell phone number is: " + myCellPhone.getPhoneNumber());
-        System.out.println("Your cell phone owner is: " + myCellPhone.getPhoneOwner());
+        // Bob calls Alice
+        System.out.println();
+        phone2.dial(phone3.getPhoneNumber());
+
+        scanner.close();
     }
 
     // Static method to display phone information
