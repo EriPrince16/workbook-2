@@ -37,5 +37,9 @@ public class Dice {
     private static int roll(int min, int max) {
         int randomNumber = (int)(Math.random() * max) + min;
         return randomNumber;
+
+        while (min == max) {
+            break;
+        }
     }
 }
